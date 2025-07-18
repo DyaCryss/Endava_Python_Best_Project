@@ -1,57 +1,119 @@
-### Implement a microservice that exposes an API to solve different mathematical operations
+# Math Microservice – CLI + SQLite Version
 
-- the pow function
+## Prerequisites
 
-- the n-th fibbonaci number
+1. Python 3.10+ with virtual environment activated and dependencies installed:
 
-- the factorial of the number
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
 
+2. No need for Redis if only using SQLite version.
 
-Each CLI request is logged in a local **SQLite** database using SQLAlchemy.
+---
 
-Technologies Used
+## Inside backend directory
 
-- Python 3.12+
-- `click` – command-line interface
-- `requests` – to send HTTP requests to the backend
-- `FastAPI` – REST API framework
-- `SQLite` (via `SQLAlchemy`) – to persist requests
+Start the FastAPI application:
 
-All CLI requests are logged into `requests.db` using a `RequestLog` table.
+```bash
+python -m uvicorn api.main:app --reload
+```
 
-Fields stored:
-- `operation` – type of operation (`factorial`, `fibonacci`, `power`)
-- `input` – request parameters
-- `output` – result of the operation
-- `api_key` – provided API key
+Access API documentation:
 
-Start FastAPI server with : python -m uvicorn api.main:app --reload
-Run CLI commands with python cli.py factorial/ fibo/power
+```
+http://127.0.0.1:8000/docs
+```
 
-# Design an API as a production ready service , needs to include
+---
 
-## TODO
+## CLI Usage (from backend directory)
 
-- [x] select a framework (sugerez fast api)
-- [x] follow MVC pattern
-- [x] consider an implementation that supports extensibility
-- [x] use a database layer (SQLite)
-- [x] make the API endpoints architecture (adica ce metode sa avem , e.g. /pow /fibo_number /factorial etc.. , si cum sa definim requests/response)
+All CLI commands require an API key (`--api_key key`).
 
+### Factorial
 
+```bash
+python cli.py factorial --number 5 --api_key key
+```
 
-Each CLI request is logged in a local **SQLite** database using SQLAlchemy.
+Returns the factorial of 5 (i.e., 120).
 
+---
 
-## Nice to have - o sa facem obligatoriu =)
+### Fibonacci
 
-- [ ] containerization (la final adaugam docker)
-- [x] add API key
-- [ ] monitoring
-- [x] caching (putem folosi redis pentru caching in special la fibonacci , sa stocam pana intr-o anumita limita - adica primele 50 de numere de exemplu, si cand primim sa returnam al n-lea numar nu mai calculam ci doar dam retrieve din cache - <https://dev.to/sivakumarmanoharan/caching-in-fastapi-unlocking-high-performance-development-20ej>)
-- [x] authorization (<https://fastapi.tiangolo.com/tutorial/security/> || <https://stackoverflow.com/questions/76504006/i-want-to-verify-the-jwt-token>)
-- [x] logging (loguru / logger-ul din fast api , loguru doar sa fie un utility extern)
-- [x] make a cli version out of it
-- [ ] make an automated testing program (putem folosi pytest aici)
-- [ ] use postman / advanced-rest-client for manual testing
-- [ ] make a frontend application that consumes the api
+```bash
+python cli.py fibo --number 10 --api_key key
+```
+
+Returns the 10th number in the Fibonacci sequence (i.e., 55).
+
+---
+
+### Power
+
+```bash
+python cli.py power --a 2 --b 8 --api_key key
+```
+
+Calculates 2^8 = 256.
+
+---
+
+## SQLite Logging
+
+All CLI requests are stored in `requests.db` in the project root.
+
+Schema:  
+- `id`: primary key  
+- `operation`: "factorial", "fibonacci", "power"  
+- `input`: request values  
+- `output`: result of computation  
+- `api_key`: value of the key used
+
+To inspect:
+
+Use [DB Browser for SQLite](https://sqlitebrowser.org/)  
+or run:
+
+```bash
+python view_requests.py
+```
+
+---
+
+## API Key Security
+
+Every endpoint requires an API key:
+
+```http
+Header name: name
+Header value: key
+```
+
+Use `--api_key key` in all CLI commands.
+
+---
+
+## Structure
+
+```
+backend/
+├── api/
+│   ├── main.py
+│   ├── database.py
+│   └── endpoints/
+│       ├── factorial.py
+│       ├── fibo.py
+│       ├── pow.py
+│       └── util.py
+├── cli.py
+├── view_requests.py
+├── requests.db
+├── requirements.txt
+└── README.md
+```
