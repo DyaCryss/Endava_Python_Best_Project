@@ -1,0 +1,436 @@
+{
+  "info": {
+    "name": "Microservices API Tests",
+    "_postman_id": "ddcaa922-5d33-42ef-844b-72e8dfd4f9f0",
+    "description": "Postman collection generated from manual test cases and extra system-level tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POW",
+      "description": "Tests for the /pow endpoint that calculates base^exponent.",
+      "item": [
+        {
+          "name": "POW-01",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": 2,\n  \"exponent\": 3\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POW-02",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": 5,\n  \"exponent\": 0\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POW-03",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": 2,\n  \"exponent\": -1\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POW-04",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": \"a\",\n  \"exponent\": \"b\"\n}"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FIBONACCI",
+      "description": "Tests for the /fibonacci endpoint that returns the n-th Fibonacci number.",
+      "item": [
+        {
+          "name": "FIB-01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fibonacci?n=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fibonacci?n=10"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "FIB-02",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fibonacci?n=0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fibonacci?n=0"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "FIB-03",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fibonacci?n=-1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fibonacci?n=-1"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "FIB-04",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fibonacci?n=25",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fibonacci?n=25"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FACTORIAL",
+      "description": "Tests for the /factorial endpoint that returns the factorial of a number.",
+      "item": [
+        {
+          "name": "FAC-01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/factorial?n=5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "factorial?n=5"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "FAC-02",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/factorial?n=0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "factorial?n=0"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "FAC-03",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/factorial?n=100",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "factorial?n=100"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "FAC-04",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/factorial?n=-5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "factorial?n=-5"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "AUTH",
+      "description": "Tests for authentication and access control with tokens.",
+      "item": [
+        {
+          "name": "AUTH-01",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer valid_token",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": 2,\n  \"exponent\": 2\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AUTH-02",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": 2,\n  \"exponent\": 2\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AUTH-03",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer invalid_token",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base\": 2,\n  \"exponent\": 2\n}"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ERROR",
+      "description": "Tests for error handling scenarios such as missing params and bad JSON.",
+      "item": [
+        {
+          "name": "ERR-01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fibonacci",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fibonacci"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "name": "ERR-02",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pow",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pow"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{ base: 2, exponent: 2"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CACHE",
+      "description": "Tests to validate response caching for expensive operations like Fibonacci.",
+      "item": [
+        {
+          "name": "CACHE-01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/fibonacci?n=25",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fibonacci?n=25"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "LOGGING",
+      "description": "Tests to confirm API activity is written to logs.",
+      "item": [
+        {
+          "name": "LOG-01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/factorial?n=3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "factorial?n=3"
+              ]
+            },
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
