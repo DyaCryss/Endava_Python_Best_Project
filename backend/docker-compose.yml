@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app.db:/app/app.db
+    depends_on:
+      - redis
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - app-net
+
+  redis:
+    image: redis:7
+    container_name: redis-cache
+    ports:
+      - "6379:6379"
+    networks:
+      - app-net
+
+networks:
+  app-net:
