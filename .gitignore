@@ -1,0 +1,51 @@
+# === Python Bytecode & Caches ===
+backend/api/__pycache__/
+backend/api/endpoints/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Virtual Environments ===
+.venv/
+env/
+venv/
+
+# === Logs and Artifacts ===
+*.log
+*.sqlite3
+*.db
+*.rdb   # Redis dump
+*.pid
+
+# === IDE / Editor Files ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Environment / Secrets ===
+.env
+.env.*
+
+# === Test and Coverage ===
+.pytest_cache/
+.coverage
+htmlcov/
+
+# === Build Artifacts ===
+build/
+dist/
+*.egg-info/
+
+# === Frontend ===
+front/node_modules/
+front/dist/
+front/.next/
+front/.nuxt/
+front/build/
+front/.cache/
+
+# === Misc ===
+.DS_Store
+Thumbs.db
+
