@@ -13,7 +13,7 @@
 - [x] select a framework (sugerez fast api)
 - [x] follow MVC pattern
 - [x] consider an implementation that supports extensibility
-- [ ] use a database layer (SQLite)
+- [x] use a database layer (SQLite)
 - [x] make the API endpoints architecture (adica ce metode sa avem , e.g. /pow /fibo_number /factorial etc.. , si cum sa definim requests/response)
 
 ## Nice to have - o sa facem obligatoriu =)
